@@ -36,12 +36,12 @@ def image_processing(request):
                 form.save()
 
                 # image Processing
-                img1 = Thumbnail.objects.get(id=2)
+                img1 = Thumbnail.objects.get(id=1)
                 # image = request.GET.get('avatar_img')
 
                 img3 = img1.image
 
-                ava = Avatar.objects.get(id=15)
+                ava = Avatar.objects.get(id=1)
                 avatar = ava.image
                 
                 print(type(avatar))
@@ -61,7 +61,7 @@ def image_processing(request):
 
                 print(file)
 
-                result = Result.objects.create(image=file)
+                result = Result.objects.create(image=file).save()
                
                 result.save()
                 
