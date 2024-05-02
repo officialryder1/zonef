@@ -10942,17 +10942,17 @@ p {
     margin-right: 0;
   }
 }
-header.masthead {
-  padding-top: 10.5rem;
-  padding-bottom: 6rem;
-  text-align: center;
-  color: #fff;
-  background-image: url("../assets/img/prolificchuch2023.webp");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-}
+ header.masthead {
+      padding-top: 10.5rem;
+      padding-bottom: 6rem;
+      text-align: center;
+      color: #fff;
+      background-image: url("../assets/img/pst_jude.jpeg");
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: center center;
+      background-size: cover;
+  }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
   font-style: italic;
