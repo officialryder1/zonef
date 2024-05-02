@@ -1,0 +1,36 @@
+{% extends "zonef/base.html" %}
+{% load static %}
+
+{%  block content %}
+<style>
+    .img-div{
+        display: flex;
+        justify-content: center;
+        margin-top: 10dvh;
+    }
+    header.masthead1{
+        padding-bottom: 6rem;
+        text-align: center;
+        background-color: rgb(238 238 238);
+    }
+</style><br>
+<header class="masthead1">
+    <div class="container">
+        <div class="container">
+            <div class="img-div">
+                <img src="{% static 'assets/img/ITWE.jpg'%}" alt="" height="500">
+            </div>
+        </div><br>
+        <form action="{% url 'process'%}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-group mb-3" style="display: flex; justify-content: center;">
+                {{form.image}}
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary btn-xl text-uppercase">Submit</button>
+        </form>
+    </div>
+</header>
+
+
+{% endblock %}
