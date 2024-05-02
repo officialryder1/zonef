@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from django.core.wsgi import get_wsgi_application
 import dj_database_url
 from decouple import config
 
