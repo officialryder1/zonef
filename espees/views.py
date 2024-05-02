@@ -17,6 +17,7 @@ from io import BytesIO
 
 
 def create_avatar(request): 
+    result = Result.objects.all()
     if request.method == 'POST':
         form = Create_Avatar(request.POST, request.FILES)
         if form.is_valid():
@@ -24,12 +25,13 @@ def create_avatar(request):
             return redirect('avatar')
     else:
         form = Create_Avatar()
-    return render(request, 'espees/avatar.html', {'form':form})
+    return render(request, 'espees/avatar.html', {'form':form, 'result':result})
 
 def image_processing(request):
     if request.POST:
         if request.method == 'POST':
             form = Create_Avatar(request.POST, request.FILES)
+            result = Result.objects.all()
             if form.is_valid():
                 form.save()
 
@@ -42,7 +44,7 @@ def image_processing(request):
                 ava = Avatar.objects.get(id=15)
                 avatar = ava.image
                 
-
+                print(type(avatar))
                 img = Image.open(img3)
                 img2 = Image.open(avatar)
 
@@ -54,14 +56,19 @@ def image_processing(request):
                 buffer = BytesIO()
                 
                 img.save(buffer, format="JPEG")
-                result = Result(image=buffer)
-                print(buffer)
-                
+                save_img = Image.open(buffer)
+                file = save_img.save("testing.JPEG")
+
+                print(file)
+
+                result = Result.objects.create(image=file)
+               
                 result.save()
+                
                 
                 return redirect('avatar')
         else:
             form = Create_Avatar()
-        return render(request, 'espees/processing.html', {'form':form})
+        return render(request, 'espees/processing.html', {'form':form, 'resut':result})
     else:
         return redirect("home")

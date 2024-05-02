@@ -9,7 +9,7 @@ class Create_Avatar(forms.ModelForm):
         fields = ['image']
 
         widgets = {
-            'username': forms.FileInput(attrs={'class':'form-control','id':'avatar_img'})
+            'username': forms.FileInput(attrs={'class':'form-control','id':'image'})
         } 
 
     def clean_avatar(self):
